@@ -62,7 +62,12 @@ function getPizzaOrder() {
   // if order is for delivery, set pizza.saleType to "delivery"
   // if order is NOT for delivery, set pizza.saleType to "take-out"
   // if order if for delivery, add deliveryFee to pizza.cost
-  // YOUR CODE HERE
+  if (isDelivery === true) {
+    pizza.cost += deliveryFee;
+    pizza.saleType = "delivery";
+  } else {
+    pizza.saleType = "take out";
+  }
 
   return pizza
 }
