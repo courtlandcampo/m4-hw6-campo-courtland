@@ -29,16 +29,22 @@ function getPizzaOrder() {
     pizza.cost = basePrice;
   }
 
-
-
-
   var toppings = prompt("Please enter additional toppings (comma separated)")
   // HINT: prompt() will return an empty string "" if the user presses 'OK' without entering a value
   // if the user enters toppings, use .split(",") to separate toppings into an array
   // if no toppings are given, make sure pizza.toppings is set to []
   // if the user has added toppings, add toppingsFee multiplied by
   // the number of toppings added to pizza.cost
-  // YOUR CODE HERE
+  if (toppings === "") {
+    pizza.toppings = [];
+  } else if (toppings === null) {
+    pizza.toppings = [];
+  } else {
+    pizza.toppings = toppings.split(',');
+    for (let t = 0; t < pizza.toppings.length; t++){
+      pizza.cost += toppingsFee;
+    }
+  }
 
   var extraCheese = confirm("Would you like extra cheese?")
   // HINT: confirm() returns a boolean
